@@ -8,36 +8,96 @@
     </head>
     <body>
         <header>
-            <img src="logo.png" alt="LuluBatti Logo" class="logo" />
+            <img src="images/logo.png" alt="LuluBatti Logo" class="logo" />
             <nav>
                 <a href="#galeri">Galeri</a>
                 <a href="#hakkimizda">Hakkımızda</a>
                 <a href="#iletisim">İletişim</a>
             </nav>
+            <div class="cart-status">
+                🧺 Sepet: <span id="cart-count">0</span> ürün
+            </div>
+
+            <button onclick="openCart()">🛍️ Sepeti Görüntüle</button>
         </header>
 
         <main>
             <section id="galeri">
                 <h2>Kedi Battaniyeleri</h2>
                 <div class="gallery">
-                    <img src="images/battaniye1.jpg" alt="Battaniye 1" />
-                    <img src="images/battaniye2.jpg" alt="Battaniye 2" />
+                    <div class="product-card" data-name="Renkli Çizgili Battaniye" data-price="12" data-stock="5">
+                        <img src="images/battaniye1.jpg" alt="Battaniye 1" />
+                        <h3>Renkli Çizgili Battaniye</h3>
+                        <p>12€</p>
+                        <p class="desc">Yerinde duramayan kedilere neşeli renkler.</p>
+                        <p class="stock">Stokta: <span class="stock-count">5</span> adet</p>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                    
+                    <div class="product-card" data-name="Pamuk Battaniye" data-price="10" data-stock="5">
+                        <img src="images/battaniye2.jpg" alt="Battaniye 2" />
+                        <h3>Pamuk Battaniye</h3>
+                        <p>10€</p>
+                        <p class="desc">100% pamuklu battaniye.</p>
+                        <p class="stock">Stokta: <span class="stock-count">5</span> adet</p>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+
+                    <div class="product-card" data-name="Sevimli Battaniye" data-price="14" data-stock="5">
+                        <img src="images/battaniye3.jpg" alt="Battaniye 3" />
+                        <h3>Sevimli Battaniye</h3>
+                        <p>14€</p>
+                        <p class="desc">Çok sevimli battaniye.</p>
+                        <p class="stock">Stokta: <span class="stock-count">5</span> adet</p>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                    
                 </div>
             </section>
 
             <section id="hakkimizda">
                 <h2>Hakkımızda</h2>
-                <p>Merhaba! Ben Lulubatti'nin kurucusuyum. El emeğiyle ördüğüm kedi battaniyleri, minik dostlarımız için sıcacık bir konfor sunuyor.</p>
+                <p>Merhaba! Ben Lulubatti'nin kurucusuyum. El emeğiyle ördüğüm kedi battaniyeleri, minik dostlarımız için sıcacık bir konfor sunuyor.</p>
             </section>
 
             <section id="iletisim">
                 <h2>İletişim</h2>
-                <p>Bana gundogan.erdal26@gmail.com maili ile ulaşabilirsiniz ya da Instagram üzerinden takip edebilirsiniz: @lulubatti</p>
+                <p>Bize aşağıdaki formdan ya da  <a href="mailto:example@email.com">e-posta</a> üzerinden ulaşabilirsiniz.Ayrıca Instagram üzerinden takip edebilirsiniz: @lulubatti</p>
+
+                <form class="contact-form" action="https://formsubmit.co/lulubatti@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <label for="name">Adınız:</label>
+                    <input type="text" id="name" name="name" required />
+
+                    <label for="email">E-posta:</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="message">Mesajınız:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Gönder</button>
+                </form>
             </section>
         </main>
 
         <footer>
             <p>© 2025 Lulubatti. Tüm hakları saklıdır.</p>
+            <div class="socials">
+                <a href="https://instagram.com/lulubatti" target="_blank">📷 Instagram</a>
+            </div>
         </footer>
+
+        <div id="cart-popup" class="cart-popup hidden">
+            <h3>🧺 Sepetiniz</h3>
+            <p id="cart-total">Toplam: 0€</p>
+            <ul id="cart-items"></ul>
+
+            <button onclick="completeOrder()">🧾 Siparişi Tamamla</button>
+            <button onclick="closeCart()">Kapat</button>
+        </div>
+
+        <script src="script.js"></script>
+        
     </body>
 </html>
