@@ -19,6 +19,8 @@
             </div>
 
             <button onclick="openCart()">🛍️ Sepeti Görüntüle</button>
+            <button id = "language-toggle" onclick="toggleLanguage()">🌐 Dili Değiştir (TR/EN)</button>
+            <button onclick="openLogin()">🔐 Giriş Yap</button>
         </header>
 
         <main>
@@ -80,6 +82,14 @@
                 </form>
             </section>
         </main>
+
+        <div id="login-popup" class="login-popup hidden">
+            <h3>Giriş Yap</h3>
+            <input type="text" id="login-username" placeholder="Kullanıcı Adı" />
+            <input type="password" id="login-password" placeholder="Şifre" />
+            <button onclick="login()">Giriş</button>
+            <button onclick="closeLogin()">İptal</button>
+        </div>
 
         <footer>
             <p>© 2025 Lulubatti. Tüm hakları saklıdır.</p>
